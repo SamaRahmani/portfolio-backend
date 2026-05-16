@@ -1,8 +1,17 @@
 package com.sama.portfolio.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Project {
 
@@ -15,16 +24,4 @@ public class Project {
 
     @ElementCollection
     private List<String> images;
-
-    public Project() {}
-
-    public Project(String title, String description, List<String> images) {
-        this.title = title;
-        this.description = description;
-        this.images = images;
-    }
-
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
-    public List<String> getImages() { return images; }
 }
