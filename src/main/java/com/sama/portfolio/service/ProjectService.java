@@ -21,12 +21,12 @@ public class ProjectService {
     private final ProjectRepository repo;
     private final DebugConfig debugConfig;
 
-    /**
-     * Fetch all projects from the database.
-     * 
-     * @return List of all projects
-     * @throws Exception if database operation fails
-     */
+    // /**
+    //  * Fetch all projects from the database.
+    //  * 
+    //  * @return List of all projects
+    //  * @throws Exception if database operation fails
+    //  */
     public List<Project> getAllProjects() {
         log.info("Service: Fetching all projects");
 
@@ -55,8 +55,6 @@ public class ProjectService {
         // Validation logic
         validateProject(project);
 
-        log.info("Service: Creating new project with title: {}", project.getTitle());
-
         if (debugConfig.isDebugLevel()) {
             log.debug("Service: Project details - Description: {}", project.getDescription());
             log.debug("Service: Number of images: {}",
@@ -65,7 +63,7 @@ public class ProjectService {
 
         // Save to database
         Project saved = repo.save(project);
-        log.info("Service: Project saved with ID: {}", saved.getId());
+        log.info("Service: Project saved with ID: {}", saved.getTitle());
 
         if (debugConfig.isDebugLevel()) {
             log.debug("Service: Saved project - Title: {}, Description: {}",
